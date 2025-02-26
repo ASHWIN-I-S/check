@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Company Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="parent">
+        <div class="site-header">
+            <div class="company-title">Fox Company</div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="div5">
+            <div class="temperature">
+                <span class="temp-value">36</span>
+                <span class="temp-unit">°C</span>
+            </div>
+            <img id="temperature-image" src="./istockphoto-947314334-612x612.jpg" alt="Temperature Image" onerror="this.src='./images/default-temp.jpg';" />
+        </div>
+        <div class="div6">6
+            <div class="humidity">
+                <span class="humidity-value">60</span>
+                <span class="humidity-unit">%</span>
+            </div>
+        </div>
+        <div class="div7">7
+            <div class="pressure">
+                <span class="pressure-value">1013</span>
+                <span class="pressure-unit">hPa</span>
+            </div>
+        </div>
+        <div class="div8">8
+            <div class="air-quality">
+                <span class="air-quality-text">Air Quality:</span>
+                <span class="air-quality-status">Good</span>
+            </div>
+        </div>
+        <div class="div9">9
+            <div class="raining">
+                <span class="raining-text">Raining:</span>
+                <span class="raining-status">No</span>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Get the temperature value from the DOM
+const tempElement = document.querySelector('.temp-value');
+const temperature = parseFloat(tempElement.textContent);
+
+// Get the image element
+const tempImage = document.getElementById('temperature-image');
+
+// Debugging
+console.log("Temperature:", temperature);
+console.log("Initial Image Path:", tempImage.src);
+
+// Check the temperature range and update the image source
+if (temperature >= 20 && temperature < 25) {
+    tempImage.src = './istockphoto-947314334-612x612.jpg'; // Path to cool temperature image
+} else if (temperature >= 25 && temperature < 40) {
+    tempImage.src = './sunny.jpg'; // Path to warm temperature image
+}
+
+// Debugging: Log the final image path
+console.log("Final Image Path:", tempImage.src);
+</script>
+</body>
+</html>
